@@ -1,0 +1,34 @@
+# oop(객체 중심 프로그램 가능 ) : 새로운 타입 생성, 포함, 상속, 다향성 등을 구사
+# class(설계도)로 인스턴스 해서 객체를 생성(별도의 이름 공간을 갖음)
+# 객체는 멤버필드(변수)와 메소드로 구성
+# 자바와 달리 접근 지정자가 없다. 메소드 오버로딩 없다.
+# 모듈의 멤버 : 변수, 명령문, 함수, 모듈, 클래스
+print('뭔가를 하다가 객체 만들기')
+
+class TestClass:
+    aa = 1  # 멤버필드(변수). 현재 클래스 내에서 전역
+    
+    def __init__(self):     # 특별한 메소드 
+        print('생성자: 객체 생성시 가장 먼저 1회만 호출 - 초기화 담당')
+    
+    def __del__(self):
+        print('소멸자 : 프로그램 종료시 자동실행. 마무리 작업')
+
+    def printMSG(self):     # 일반 메소드  self 필수!
+        name = '한국인'      # 지역 변수 printMSG 에서만 유효
+        print(name)
+
+print(TestClass)
+test = TestClass()       # 객체 생성 한 개
+print("test 객체의 멤버 aa : ",test.aa)                    # 객체 변수
+# method call
+test.printMSG()      # 1. Bound Merhod call
+TestClass.printMSG(test)   # 2. UnBound Merhod call
+
+print(type(1))            
+print(type(1.0))
+print(type(test))
+print(id(test))
+print(id(TestClass)) 
+test2 = TestClass()       # 객체 생성 한 개 더
+print(id(test2))
