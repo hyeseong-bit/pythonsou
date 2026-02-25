@@ -34,6 +34,8 @@ First-Class Function
 
 📂 프로젝트 구조
 pythonsou/
+
+
  ┣ ch01-2.py        # 클래스 구조 및 변수 개념
  ┣ ch01-3.py        # Instance / Static Method
  ┣ chapter02-2.py   # Magic Method 실습
@@ -42,6 +44,8 @@ pythonsou/
  ┣ chapter04-1.py   # First-Class Function
  ┣ chapter04-2.py   # Closure & Decorator
  ┗ chapter04-3.py   # 객체 참조 및 Copy 개념
+
+ 
 ⚙ 주요 기능
 기능	설명
 클래스 설계	객체지향 프로그래밍 구조 구현
