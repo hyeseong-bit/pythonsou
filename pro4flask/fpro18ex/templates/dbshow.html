@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>직원 분석 결과</title>
+</head>
+<body>
+    <h2>직원 자료 분석 결과</h2>
+
+    {% if dept %}
+        <p>검색 부서명: {{ dept }}</p>
+    {% endif %}
+
+    <h3>1) 직원 기본 정보</h3>
+    {{ jikwondata|safe }}
+
+    <h3>2) 부서명, 직급별 연봉합 / 연봉평균</h3>
+    {{ statsdata|safe }}
+
+    <h3>3) 부서명별 연봉합 / 평균 그래프</h3>
+    {% if chart_url %}
+        <img src="data:image/png;base64,{{ chart_url }}">
+    {% else %}
+        <p>그래프가 없습니다.</p>
+    {% endif %}
+
+    <h3>4) 성별, 직급별 빈도표</h3>
+    {{ freqdata|safe }}
+
+    <h3>5) 부서별 최고 연봉자</h3>
+    {{ highpaydata|safe }}
+
+    <h3>6) 부서별 직원 비율</h3>
+    <p>총 인원: {{ total_count }}명</p>
+    {{ ratiodata|safe }}
+</body>
+</html>

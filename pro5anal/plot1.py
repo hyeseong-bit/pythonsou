@@ -1,0 +1,76 @@
+# matplotlib : 플로딩 라이브러리. 그래프 생성을 위한 다양한 함수를 제공
+# 시각화의 중요성
+
+import numpy as np
+import matplotlib.pyplot as plt
+plt.rc('font', family='malgun gothic')       # ApppleGodthic
+plt.rcParams['axes.unicode_minus'] = False
+
+# x = ["서울","인천","수원"]      # [0, 1, 2]
+x = ("서울","인천","수원")
+# x = {"서울","인천","수원"}      # TypeError: unhashable type: 'set'
+y = [5, 3, 7]
+plt.xlim([-1, 3])
+plt.ylim([0, 10])
+# tick 설정 : y축의 라벨을 인위적으로 표시
+plt.yticks(list(range(0, 11, 3)))
+plt.plot(x, y)
+plt.show()
+
+data = np.arange(1, 11, 2)
+plt.plot(data)     # x축의 구간은 자동 설정
+x = [0,1,2,3,4]
+for a, b in zip(x, data):
+    plt.text(a, b, str(b))
+plt.show()
+
+x = np.arange(10)
+y = np.sin(x)
+print(x,y)
+# plt.plot(x, y)
+# plt.plot(x, y, 'bo')
+plt.plot(x, y, 'go--', linewidth=2, markersize=12)
+plt.show()
+
+# hold : 복수의 plot으로 여러개의 차트를 겹쳐 그림
+x = np.arange(0, np.pi * 3, 0.1) 
+print(x)
+y_sin = np.sin(x)
+y_cos = np.cos(x)
+plt.figure(figsize=(10, 5))    # 그래프 전체 크기(w, h)
+plt.plot(x, y_sin, 'r')     # 선
+plt.scatter(x, y_cos)       # 산점도
+plt.xlabel('x 축')
+plt.xlabel('y 축')
+plt.title('sine & cosine')
+plt.legend(['sine', 'cosine'])  # 범례
+plt.show()
+
+print()
+# subplot : 하나의 Figure를 여러개의 Axes(plot)으로 나누기
+plt.subplot(2, 1, 1)         # 1행
+plt.plot(x, y_sin)
+plt.title('sine')
+plt.subplot(2, 1, 2)         # 2행
+plt.plot(x, y_cos)
+plt.title('cosine')
+plt.show() 
+
+print()
+irum = ['a','b','c','d','e']
+kor = [80,50,70,70,90]
+eng = [60,70,80,90,100]
+plt.plot(irum, kor, 'ro-')
+plt.plot(irum, eng, 'bo--')
+plt.title('시험 점수')
+plt.legend(['국어','영어'], loc=4)
+plt.grid(True)
+
+fig = plt.gcf()
+plt.show()
+fig.savefig('plot1.png')
+
+from matplotlib.pyplot import imread
+img = imread('plot1.png')
+plt.imshow(img)
+plt.show()

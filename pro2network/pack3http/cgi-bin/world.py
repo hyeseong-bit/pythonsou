@@ -16,6 +16,10 @@ print("""
 <body>
     <h1>world 페이지</h1>
     자료 출력 : {0}, {1}
+    <br/>
+    <img src="../images/dog.jpeg"  />           
+    <br/>
+    <a href="../index.html">메인으로</a>
 </body>
 </html>
     """.format(s1, s2))
